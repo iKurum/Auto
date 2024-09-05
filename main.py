@@ -2,12 +2,10 @@
 import requests as req
 import json, sys, time
 
-
 path = sys.path[0] + r"/Token"
 num1 = 0
 
-
-def main():
+for _ in range(3):
     fo = open(path, "r+")
     refresh_token = fo.read()
     fo.close()
@@ -131,7 +129,3 @@ def main():
     except:
         print("pass")
         pass
-
-
-for _ in range(3):
-    main()
