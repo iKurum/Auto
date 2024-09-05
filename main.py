@@ -2,6 +2,15 @@
 import requests as req
 import json, sys, time
 
+
+
+
+
+
+
+# id
+# secret
+
 path = sys.path[0] + r"/Token"
 num1 = 0
 
