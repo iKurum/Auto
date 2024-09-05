@@ -50,7 +50,7 @@ jobs:
         git add .
         git commit -m "update new refresh_token" -a
     - name: Push changes
-      env: 
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      run: | 
-        git push
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: master
