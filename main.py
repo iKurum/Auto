@@ -2,11 +2,18 @@
 import requests as req
 import json, sys, time
 
+
 path = sys.path[0] + r"/Token"
 num1 = 0
 
 
-def gettoken(refresh_token):
+def main():
+    fo = open(path, "r+")
+    refresh_token = fo.read()
+    fo.close()
+    global num1
+    localtime = time.asctime(time.localtime(time.time()))
+    
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
     data = {
         "grant_type": "refresh_token",
@@ -25,16 +32,7 @@ def gettoken(refresh_token):
     access_token = jsontxt["access_token"]
     with open(path, "w+") as f:
         f.write(refresh_token)
-    return access_token
-
-
-def main():
-    fo = open(path, "r+")
-    refresh_token = fo.read()
-    fo.close()
-    global num1
-    localtime = time.asctime(time.localtime(time.time()))
-    access_token = gettoken(refresh_token)
+    
     headers = {"Authorization": access_token, "Content-Type": "application/json"}
     try:
         if (
