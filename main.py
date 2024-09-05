@@ -30,22 +30,20 @@ for _ in range(3):
     access_token = jsontxt["access_token"]
     with open(path, "w+") as f:
         f.write(refresh_token)
-    
+        
     headers = {"Authorization": access_token, "Content-Type": "application/json"}
     try:
         if (
             req.get(
                 r"https://graph.microsoft.com/v1.0/me/drive/root", headers=headers
-            ).status_code
-            == 200
+            ).status_code == 200
         ):
             num1 += 1
             print("1调用成功" + str(num1) + "次")
         if (
             req.get(
                 r"https://graph.microsoft.com/v1.0/me/drive", headers=headers
-            ).status_code
-            == 200
+            ).status_code == 200
         ):
             num1 += 1
             print("2调用成功" + str(num1) + "次")
